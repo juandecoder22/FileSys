@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 using std::string;
+using std::cin;
+using std::cout;
 
 class Admin
 {
@@ -10,6 +12,10 @@ private:
 	int m_Key;
 
 public:
+	Admin() = default;
+	//Admin(string);
+	Admin(string);
+	Admin(int);
 	Admin(string, string, int);
 	void setUsername(string);
 	void setPassword(string);

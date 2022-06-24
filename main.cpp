@@ -1,18 +1,38 @@
-#include "Admin.h"
+#include "Account.h"
+#include "Display.h"
 #include <fstream>
-using std::cout;
-void mainPage();
 
 std::ostream& operator<<(std::ostream& userLogin, const Admin& ID)
 {
 	userLogin << ID.m_Username << "\n" << ID.m_Password << "\n";
 	return userLogin;
 }
+
 int main()
 {
-	mainPage();
-	Admin ID("juandg168", "18Salazar", 101);
-	std::cout << ID;
+	Display display;
+	std::string input {};
+	do 
+	{
+		display.mainPage();
+		std::cin >> input;
+		if (input == "login")
+		{
+			display.loginPage();
+			system("cls");
+		}
+		else if(input == "register")
+		{
+			display.registerPage();
+			system("cls");
+		}
+		else if (input == "recover")
+		{
+			display.recoverPage();
+			system("cls");
+		}
+	} while (input != "quit");
+
 	std::ofstream LOG;
 	std::ifstream FILE;
 	LOG.open("Login_Info.txt");
@@ -26,7 +46,6 @@ int main()
 	{
 		cout << "ERROR::FILE CANT OPEN!\n";
 	}
-	LOG << ID << "\n";
 	return 0;
 }
 

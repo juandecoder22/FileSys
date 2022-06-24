@@ -1,4 +1,20 @@
-#include "Admin.h"
+#include "Account.h"
+
+Admin::Admin(string Username)
+	: m_Username(Username)
+{
+}
+
+/*
+Admin::Admin(string Password)
+	: m_Password(Password)
+{
+}
+*/
+Admin::Admin(int Key)
+	: m_Key(Key)
+{
+}
 Admin::Admin(string Username, string Password, int Key)
 	: m_Username(Username), m_Password(Password), m_Key(Key)
 {
